@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'puissance4';
+  title = 'Puissance4';
+
+
+  reset = () => {
+    console.log('reste game');
+  }
 }
