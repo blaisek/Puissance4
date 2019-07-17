@@ -1,8 +1,10 @@
 
-<div class="board" (click)="drop($event)">
+<div class="board" (click)="game($event)">
     <div *ngFor="let line of board; let lI = index">
         <td *ngFor="let col of line ; let cI = index">
-            <div [attr.data-l]="lI" [attr.data-c]="cI" class="cell" [ngStyle]="{'background-color': (col === 0) ? 'white': (col === 1) ? 'red' : 'yellow'}"></div>
+            <div [attr.data-l]="lI" [attr.data-c]="cI" class="cell"
+              [ngStyle]="{'background-color': (col === 0) ? 'white': (col === 1) ? 'red' : 'yellow'}">
+            </div>
         </td>
       </div>
 </div>

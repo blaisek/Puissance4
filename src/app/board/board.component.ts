@@ -12,30 +12,30 @@ import { GameService } from '../game.service';
 
 export class BoardComponent implements OnInit {
 
-
     columnNumber = 7;
     lineNumber = 6;
     player = 1;
     counter = 0;
     win = false;
-
     board: number[][];
 
     constructor(public gameservice: GameService) {}
-ngOnInit() {
-  this.board = this.gameservice.board;
-}
-  isValidColumn(board: number[][], col: number) {
-    return board[0][col] === 0;
-  }
 
-  nextOpenRow(board: number[][], col: number) {
-    for ( let i = this.lineNumber - 1 ; i > -1; i--) {
-      if (board[i][col] === 0) {
-        return i;
+    ngOnInit() {
+      this.board = this.gameservice.board;
+    }
+
+    isValidColumn(board: number[][], col: number) {
+      return board[0][col] === 0;
+    }
+
+    nextOpenRow(board: number[][], col: number) {
+      for ( let i = this.lineNumber - 1 ; i > -1; i--) {
+        if (board[i][col] === 0) {
+          return i;
+        }
       }
     }
-  }
 
     checkWin(board: number[][], player: number) {
 
@@ -78,27 +78,26 @@ ngOnInit() {
 
     }
 
-    drop(event) {
+    game(event) {
 
-      // index
+      // index column
       const c = event.target.getAttribute('data-c');
-      // si la ligne du haut est vide=0
+      // if first row isn't empty
       if (this.isValidColumn(this.board, c)) {
         this.counter = this.counter + 1;
-        // faire descendre player à la ligne la plus basse possible
+        // write on the lowest row
         const i: number = this.nextOpenRow(this.board, c);
         this.board[i][c] = this.player;
         if (this.checkWin(this.board, this.player)) {
           this.win = true;
-          console.log('player', this.player, 'wins !!!!');
-          this.gameservice.openDialog(`player ${this.player} winn !!!`);
-
+          this.gameservice.openDialog(`Player ${this.player} wins !!!`);
         }
+        // switch players
         this.player = (this.player === 1) ? 2 : 1;
         }
+        // no winner when board is full
       if ( this.counter === 42 && this.win === false) {
-          console.log('match nul !!');
-          this.gameservice.openDialog('match nul !!');
+          this.gameservice.openDialog('Draw !!!');
         }
 
       return;

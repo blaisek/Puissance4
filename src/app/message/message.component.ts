@@ -12,7 +12,7 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() {
   }
-reset() {
-  this.dialogRef.close();
-}
+  close() {
+    this.dialogRef.close();
+  }
 }
