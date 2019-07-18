@@ -9,6 +9,10 @@ export class GameService {
 
   columnNumber = 7;
   rowNumber = 6;
+  counter = 0;
+  player = 1;
+  win = false;
+
 
   board = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -32,6 +36,7 @@ export class GameService {
     for (let i = 0; i < this.rowNumber; i++) {
         this.board[i] = [0, 0, 0, 0, 0, 0, 0];
     }
-
+    this.counter = 0;
+    this.win = false;
   }
 }

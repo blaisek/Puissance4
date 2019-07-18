@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Puissance4';
-
-
-  reset = () => {
-    console.log('reste game');
-  }
+  Player1 = 'Player 1: red';
+  Player2 = 'Player 2: yellow';
 }

@@ -1,5 +1,5 @@
 
-<div class="board" (click)="game($event)">
+<div class="board" (click)="game($event)" [@divState]="state">
     <div *ngFor="let line of board; let lI = index">
         <td *ngFor="let col of line ; let cI = index">
             <div [attr.data-l]="lI" [attr.data-c]="cI" class="cell"
