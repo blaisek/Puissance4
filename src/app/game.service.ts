@@ -20,7 +20,7 @@ export class GameService {
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0],
   ];
   constructor( public dialog: MatDialog) {
    }

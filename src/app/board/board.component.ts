@@ -124,7 +124,7 @@ export class BoardComponent implements OnInit {
         this.gameservice.player = (this.gameservice.player === 1) ? 2 : 1;
         }
         // no winner when board is full
-      if ( this.gameservice.counter  === 42 && this.gameservice.win === false) {
+      if ( this.gameservice.counter  === (this.gameservice.columnNumber * this.gameservice.rowNumber) && this.gameservice.win === false) {
           this.gameservice.openDialog('Draw !!!');
         }
 
