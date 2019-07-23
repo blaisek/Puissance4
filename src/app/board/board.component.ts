@@ -9,27 +9,27 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
   animations: [
     trigger('divState', [
       state('initial', style({
-        transform: 'translateX(0px)'
+        transform: 'translateY(0px)'
       })),
       transition('initial <=> final', animate(300, keyframes([
         style({
-          transform: 'translateX(5px)'
+          transform: 'translateY(5px)'
         }),
         style({
-          transform: 'translateX(-5px)'
+          transform: 'translateY(-5px)'
         }),
         style({
-          transform: 'translateX(3px)'
+          transform: 'translateY(3px)'
         }),
         style({
-          transform: 'translateX(-3px)'
+          transform: 'translateY(-3px)'
         }),
         style({
-          transform: 'translateX(2px)'
+          transform: 'translateY(2px)'
         })
       ]))),
       state('final', style({
-        transform: 'translateX(0px)'
+        transform: 'translateY(0px)'
       })),
     ])
   ]
@@ -111,8 +111,8 @@ export class BoardComponent implements OnInit {
       if (this.isValidColumn(this.board, c)) {
         this.gameservice.counter = this.gameservice.counter  + 1;
         // write on the lowest row
-        const i: number = this.nextOpenRow(this.board, c);
-        this.board[i][c] = this.gameservice.player;
+        const r: number = this.nextOpenRow(this.board, c);
+        this.board[r][c] = this.gameservice.player;
         // animate
         this.onAnimate();
         // check winner
@@ -122,6 +122,7 @@ export class BoardComponent implements OnInit {
         }
         // switch players
         this.gameservice.player = (this.gameservice.player === 1) ? 2 : 1;
+
         }
         // no winner when board is full
       if ( this.gameservice.counter  === (this.gameservice.columnNumber * this.gameservice.rowNumber) && this.gameservice.win === false) {
