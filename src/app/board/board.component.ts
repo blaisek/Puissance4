@@ -11,7 +11,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
       state('initial', style({
         transform: 'translateY(0px)'
       })),
-      transition('initial <=> final', animate(300, keyframes([
+      transition('initial <=> final', animate(400, keyframes([
         style({
           transform: 'translateY(5px)'
         }),
@@ -26,7 +26,19 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
         }),
         style({
           transform: 'translateY(2px)'
-        })
+        }),
+        style({
+          transform: 'translateY(-2px)'
+        }),
+        style({
+          transform: 'translateY(1px)'
+        }),
+        style({
+          transform: 'translateY(-1px)'
+        }),
+        style({
+          transform: 'translateY(0px)'
+        }),
       ]))),
       state('final', style({
         transform: 'translateY(0px)'
